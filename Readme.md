@@ -47,3 +47,14 @@ phone_number: Номер телефона пользователя.
 + Прописать docker-compose up --build
 + Ниже оставляю ссылку на файлик с скриншотами и описанием эндпоинтов
 + https://docs.google.com/document/d/1C-ONxNohFGXtHhfPkND_G4xwDsbfl78wYsfhI3Cx-gU/edit?usp=sharing
+
++ в основной папке проекта перед запуском необходимо создать .env файл со следующим содержимым:
+
+DB_ENGINE=django.db.backends.postgresql
+DB_NAME=postgres
+DB_USER=postgres
+DB_PASSWORD=secretkey
+DB_HOST=db
+DB_PORT=5432
+
+DJANGO_KEY=django-key
