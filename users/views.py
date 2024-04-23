@@ -91,6 +91,10 @@ class InvitationActivate(APIView):
 
         user = self.request.user
 
+        if Invitation.objects.filter(activated_by=user).exists():
+            return Response({'error': 'This or another invite code already activated by the current user'},
+                            status=status.HTTP_400_BAD_REQUEST)
+
         invitation, created = Invitation.objects.get_or_create(code=invite_code)
         if created:
             invitation.user = owner
